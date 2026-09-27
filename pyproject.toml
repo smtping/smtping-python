@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "smtping"
+version = "1.0.0"
+description = "Official SMTPing SDK for Python: verify email addresses, run bulk list jobs, and check spamtrap, disposable, spambot and complainer lists."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.8"
+authors = [{ name = "SMTPing", email = "support@smtping.com" }]
+keywords = ["smtping", "email verification", "email validation", "email verifier", "bulk email verification", "disposable email", "spamtrap"]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Topic :: Communications :: Email",
+  "Typing :: Typed",
+]
+dependencies = ["httpx>=0.24,<1"]
+
+[project.urls]
+Homepage = "https://smtping.com"
+Documentation = "https://smtping.com/docs"
+Source = "https://github.com/smtping/smtping-python"
+Issues = "https://github.com/smtping/smtping-python/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/smtping"]
