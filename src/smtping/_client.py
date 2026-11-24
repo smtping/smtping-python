@@ -20,7 +20,8 @@ from ._errors import (
 VERSION = "1.0.0"
 DEFAULT_BASE_URL = "https://api.smtping.com/api/v1"
 SAFE = ("valid", "alias")
-AVOID = ("invalid", "spamtrap", "disposable", "blacklisted", "complainer", "spambot", "inbox_full")
+AVOID = ("invalid", "spamtrap", "disposable", "blacklisted", "complainer", "spambot", "inbox_full", "no_reply")
+BANDS = ("safe", "avoid", "judgement")
 CHECKS = ("spamtrap", "disposable", "spambot", "complainer")
 BULK_MAX = 100_000
 _EMAIL = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
@@ -42,7 +43,8 @@ def is_email(value: str) -> bool:
 
 
 def _with_band(r: Any) -> Any:
-    if isinstance(r, dict) and isinstance(r.get("status"), str) and "band" not in r:
+    # The API decides the band (a valid address on a mistyped domain is judgement).
+    if isinstance(r, dict) and isinstance(r.get("status"), str) and r.get("band") not in BANDS:
         r = {**r, "band": band(r["status"])}
     return r
 
