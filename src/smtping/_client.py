@@ -17,7 +17,7 @@ from ._errors import (
     error_for,
 )
 
-VERSION = "1.0.0"
+VERSION = "1.1.0"
 DEFAULT_BASE_URL = "https://api.smtping.com/api/v1"
 SAFE = ("valid", "alias")
 AVOID = ("invalid", "spamtrap", "disposable", "blacklisted", "complainer", "spambot", "inbox_full", "no_reply")

@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "smtping"
-version = "1.0.0"
+version = "1.1.0"
 description = "Official SMTPing SDK for Python: verify email addresses, run bulk list jobs, and check spamtrap, disposable, spambot and complainer lists."
 readme = "README.md"
 license = "MIT"
